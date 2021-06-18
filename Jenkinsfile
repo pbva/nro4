@@ -26,14 +26,9 @@ pipeline {
 
         stage('SonarQube analysis') {
            steps{
-                script {
-              
-                        sh 'mvn sonar:sonar -Dsonar.projectKey=Ms-Maven -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d4da3a7237df0a855aab348de9e21f7b1e16e21b'
-                        
-                                        
-                    }
+                sh 'mvn sonar:sonar -Dsonar.projectKey=Ms-Maven -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d4da3a7237df0a855aab348de9e21f7b1e16e21b'
                 }
-           }
+           
         }
     }
 }
