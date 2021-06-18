@@ -26,14 +26,14 @@ pipeline {
 
         stage('SonarQube analysis') {
            steps{
-                
-               
-               def scannerHome = tool 'SonarQube Scanner';
+                script {
+                    
+                    
+                    def scannerHome = tool 'SonarQube Scanner';
                     withSonarQubeEnv('sonar') {
-                      sh "${scannerHome}/bin/mvn sonar:sonar -Dsonar.projectKey=Ms-Maven -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d4da3a7237df0a855aab348de9e21f7b1e16e21b"
-                    }
+                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=Ms-Maven -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d4da3a7237df0a855aab348de9e21f7b1e16e21b"
+                        }
                 }
-           
         }
     }
 }
