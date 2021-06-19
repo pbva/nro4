@@ -13,6 +13,21 @@ pipeline {
                '''
             }
         }
+        
+        
+        stages {
+          stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('sonar') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+        
+        
+        
+        
         stage ('Compilacion') {
             steps {
                  sh 'mvn clean compile -e'
