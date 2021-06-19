@@ -20,11 +20,7 @@ pipeline {
                 sh 'mvn clean package sonar:sonar'
               }
             }
-          }
-        
-        
-        
-        
+        }
         stage ('Compilacion') {
             steps {
                  sh 'mvn clean compile -e'
